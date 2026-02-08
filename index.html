@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Axo Bypass</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: #0b0b0e;
+    color: #ffffff;
+}
+
+/* ===== GLOBAL ===== */
+section {
+    padding: 100px 6%;
+}
+
+.fade {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.9s cubic-bezier(.19,1,.22,1);
+}
+
+.fade.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ===== HERO ===== */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* centers horizontally */
+    text-align: center;      /* centers text itself */
+}
+
+
+.hero h1 {
+    font-size: clamp(3rem, 6vw, 5rem);
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+/* ===== STATUS ===== */
+.status h2 {
+    font-size: 2.2rem;
+    margin-bottom: 40px;
+}
+
+.status-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+}
+
+.card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 14px;
+    padding: 30px;
+}
+
+.card span {
+    color: #aaa;
+    font-size: 0.9rem;
+}
+
+.card h3 {
+    font-size: 1.6rem;
+    margin-top: 8px;
+}
+
+.green {
+    color: #00ff88;
+    font-weight: 600;
+}
+
+/* ===== FEEDBACK ===== */
+.feedback h2 {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 50px;
+}
+
+.feedback-grid img {
+    width: 100%;
+    height: 210%;          /* increase this value */
+    object-fit: cover;     /* keeps image clean */
+    border-radius: 14px;
+}
+
+
+.feedback-grid img {
+    width: 100%;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.08);
+    transition: transform 0.4s ease;
+}
+
+.feedback-grid img:hover {
+    transform: scale(1.03);
+}
+
+/* ===== DISCORD ===== */
+.discord {
+    text-align: center;
+}
+
+.discord h2 {
+    font-size: 2.2rem;
+}
+
+.discord a {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 14px 36px;
+    border-radius: 50px;
+    background: #5865F2;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.discord a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(88,101,242,0.4);
+}
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<section class="hero fade">
+    <h1>WELCOME TO AXO BYPASS WEBSITE</h1>
+</section>
+
+<!-- STATUS -->
+<section class="status fade">
+    <h2>System Status</h2>
+
+    <div class="status-grid">
+        <div class="card">
+            <span>Product</span>
+            <h3>Vgc Bypass</h3>
+        </div>
+
+        <div class="card">
+            <span>Status</span>
+            <h3 class="green">100% Undetected</h3>
+        </div>
+    </div>
+</section>
+
+<!-- FEEDBACK -->
+<section class="feedback fade">
+    <h2>Feedbacks / Reviews</h2>
+
+    <div class="feedback-grid">
+        <img src="images/feedback1.png" alt="feedback">
+        <img src="images/feedback2.png" alt="feedback">
+        <img src="images/feedback3.png" alt="feedback">
+    </div>
+</section>
+
+<!-- DISCORD -->
+<section class="discord fade">
+    <h2>Purchase it in our Discord</h2>
+    <a href="https://discord.gg/Wy6sjDX8bu" target="_blank">Join Discord</a>
+</section>
+
+<script>
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+        }
+    });
+}, { threshold: 0.2 });
+
+document.querySelectorAll('.fade').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
